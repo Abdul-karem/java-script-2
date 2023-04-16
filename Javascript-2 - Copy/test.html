@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="color-bar"></div>
+
+    <section class="hero">
+      <h1>AJAX </h1>
+      <input
+        type="text"
+        onkeyup="updateUrl()"
+        id="input"
+        placeholder="javascript"
+      />
+
+      <button onclick="get()">Send comment</button>
+    </section>
+
+    <section class="output">
+      <h1>Get comment: <span id="url"></span></h1>
+    </section>
+    <script>
+      var urlElem = document.getElementById("url");
+      var input;
+      var comment;
+
+      function updateUrl() {
+        input = document.getElementById("input").value;
+        comment = input;
+
+        urlElem.innerHTML = comment;
+
+        if (xhr.readyState == 4 && xhr.status == 200) {
+          var response = JSON.parse(xhr.responseText);
+
+          responseElem.innerHTML = JSON.stringify(response, null, 2);
+        }
+      }
+    </script>
+  </body>
+</html>

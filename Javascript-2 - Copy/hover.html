@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Change Background Color</title>
+    <style>
+        body {
+            background-color: #f5f5f5; 
+        }
+    </style>
+</head>
+<body>
+    <h1>Change Background Color</h1>
+    <p>Click on the buttons below to change the background color:</p>
+    <button onclick="changeBackgroundColor('red')">Red</button>
+    <button onclick="changeBackgroundColor('green')">Green</button>
+    <button onclick="changeBackgroundColor('blue')">Blue</button>
+    <script>
+// ______________chinge___________________________________
+
+        function changeBackgroundColor(color) {
+            document.body.style.backgroundColor = color;
+        }
+
+        function changeBackgroundColor(color) {
+    document.body.style.backgroundColor = color;
+    sessionStorage.setItem('backgroundColor', color);
+}
+
+window.onload = function() {
+    var backgroundColor = sessionStorage.getItem('backgroundColor'); 
+    if (backgroundColor) {
+        document.body.style.backgroundColor = backgroundColor; 
+    }
+} 
+
+    </script>
+</body>
+</html>

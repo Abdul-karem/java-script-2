@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Exercise #4: Formatting text</title>
+    <style>
+      div {
+        width: 600px;
+        height: 100px;
+        border: 1px solid black;
+        margin-top: 10px;
+        /* default options */
+        font-family: Arial;
+        font-size: 12pt;
+      }
+    </style>
+  </head>
+  <body>
+    <form name="form">
+      <select name="font_family" id="font_family">
+        1
+        <option value="Arial" selected>Arial</option>
+        <option value="Verdana">Verdana</option>
+        <option value="Helvetica">Helvetica</option>
+        <option value="Times New Roman">Times New Roman</option>
+        <option value="Courier New">Courier New</option>
+      </select>
+      <select name="font_size" id="font_size">
+        2
+        <option value="8pt">8pt</option>
+        <option value="10pt">10pt</option>
+        <option value="12pt" selected>12pt</option>
+        <option value="14pt">14pt</option>
+        <option value="16pt">16pt</option>
+      </select>
+      <label
+        >Italic <input type="checkbox" name="font_italic" id="fontitalic"
+      /></label>
+      <label
+        >Bold <input type="checkbox" name="font_bold" id="font_bold"
+      /></label>
+      <label
+        >Underline
+        <input type="checkbox" name="font_underline" id="font_underline"
+      /></label>
+    </form>
+
+    <div id="text">The quick brown fox jumps over the lazy dog</div>
+    <!-- __________js__________________js_________________js________________________ -->
+    <script>
+      var fontsl = document.getElementById("font_family");
+      var sizsl = document.getElementById("font_size");
+      var Itali = document.getElementById("fontitalic");
+      var bod = document.getElementById("font_bold");
+      var Underlne = document.getElementById("font_underline");
+      var text = document.getElementById("text");
+
+      fontsl.addEventListener("change", function () {
+        text.style.fontFamily = this.value;
+      });
+      sizsl.addEventListener("change", function () {
+        text.style.fontSize = this.value;
+      });
+
+      Itali.addEventListener("click", function () {
+        if (this.checked) {
+          text.style.fontStyle = "italic";
+        } else {
+          text.style.fontStyle = "normal";
+        }
+      });
+      Underlne.addEventListener("click", function () {
+        if (this.checked) {
+          text.style.textDecoration = "underline";
+        } else {
+          text.style.textDecoration = "none";
+        }
+      });
+
+      bod.addEventListener("click", function () {
+        if (this.checked) {
+          text.style.fontWeight = "bold";
+        } else {
+          text.style.fontWeight = "normal";
+        }
+      });
+    </script>
+  </body>
+</html>
